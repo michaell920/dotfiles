@@ -3,8 +3,6 @@
 sudo pacman -S \
 7zip  \
 android-tools \
-bluez \
-bluez-utils \
 btop \
 catimg \
 cava \
@@ -25,19 +23,14 @@ hyprpicker \
 i3status-rust \
 iwd \
 kanshi \
-kdenlive \
 kvantum \
 lf \
-libpulse \
 libreoffice-still \
-linux \
-linux-firmware \
 man-db \
 mpd \
 mpv \
 neovim \
 networkmanager \
-newsboat \
 noto-fonts-cjk \
 noto-fonts-emoji \
 nwg-look \
@@ -46,16 +39,12 @@ polkit-gnome \
 pyenv \
 qt5ct \
 qt6ct \
-rbutil \
 river \
 rmpc \
 slurp \
-steam \
-sudo \
 swayidle \
 swayimg \
 swww \
-syncthing \
 system-config-printer \
 tailscale \
 timeshift \
@@ -67,7 +56,6 @@ ttf-firacode-nerd \
 udiskie \
 waylock \
 wf-recorder \
-wireplumber \
 wl-clipboard \
 wlr-randr \
 xdg-desktop-portal-gtk \

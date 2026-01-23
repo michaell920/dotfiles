@@ -1,6 +1,7 @@
 #!/bin/sh
 
-mv .config $HOME/
-mv .local $HOME/
-mv .shell $HOME/
-mv .newsboat $HOME/
+for file in ./dot/*
+do
+  mv file $HOME/
+done
+
