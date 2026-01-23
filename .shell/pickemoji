@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Slightly modified Luke Smith's pick emoji script for Wayland
+
+# Get user selection via fzf from emoji file.
+# Kinda painful with the wl-copy thing 
+
+chosen=$(cat $HOME/.shell/Library/emoji | fzf | sed "s/ .*//")
+
+# Exit if none chosen.
+[ -z "$chosen" ] && exit
+
+notify-send "'$chosen' copied to clipboard."
+wl-copy "$chosen" 2>/dev/null && exit

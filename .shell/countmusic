@@ -1,0 +1,5 @@
+# !/bin/sh
+
+musicdir=$HOME/Music/
+
+find $musicdir -regextype posix-awk -regex '.*\.(mp3|m4a|ogg)' | wc -l

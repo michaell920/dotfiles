@@ -1,0 +1,71 @@
+#!/bin/sh
+
+IFS='
+'
+
+sel=$(find -name "*.*" | fzf --prompt "Select audio file: ")
+
+
+getTag ()
+{
+  case "$fileext" in
+    m4a|mp3) 
+      echo $(ffprobe -v quiet -show_entries format_tags $file | sed -n 's/^TAG:\(.*\)=.*/\1/p' | fzf --prompt "Enter lyrics\' tag")
+    ;;
+    ogg)
+      echo $(ffprobe -v quiet -show_streams $file | sed -n 's/^TAG:\(.*\)=.*/\1/p' | fzf --prompt "Enter lyrics\' tag")
+    ;;
+    *) 
+      echo "Not a valid format!" && exit
+    ;;
+  esac
+}
+
+
+if [[ -z $sel ]]; then
+  echo "Nothing has chose, exitting..."
+  exit 
+fi
+  
+selbasename=$(basename $sel)
+selname=${selbasename::-3}
+selnamewpath=${sel::-3}
+selext=${sel: -3: 3}
+
+
+if [[ "$selext" == "lrc" ]]; then
+  echo "Don\'t choose .lrc file!"
+  exit
+fi
+
+cd ${sel::-${#selbasename}}
+echo ${selname}
+
+for file in $(find -wholename "*${selname}*")
+do
+
+  fileext=${file: -3: 3}
+
+  if [[ "$fileext" == "lrc" ]]; then
+    continue
+  fi
+
+  tag=$(getTag)
+
+  case "$fileext" in
+    m4a)
+      ffmpeg -y -i $file -metadata ${tag}="${lyrics}" -c:v copy -c:a copy "Edited $filename"
+    ;;
+    mp3)
+      ffmpeg -y -i $file -metadata ${tag}="${lyrics}" -map 0:a -c copy "Edited $filename"
+    ;;
+    ogg)
+      ffmpeg -y -i $file -metadata:s "${tag}"="${lyrics}" -map 0:a -c copy "Edited $filename"
+    ;;
+    *) echo default
+    ;;
+  esac
+  
+  rm $file
+  mv "Edited $filename" $filename
+done

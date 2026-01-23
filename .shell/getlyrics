@@ -1,0 +1,24 @@
+#!/bin/bash
+
+echo -n "Input audio file extension: "
+read -r ext
+echo -n "Is it Chinese? (y for yes) "
+read -r ischinese
+
+extlength=-1*${#ext}-1
+
+for i in *.$ext; do
+  filename=${i::$extlength}
+
+  if [[ $ischinese == "y" ]]; then
+    #ffprobe -v quiet -show_entries format_tags=lyrics-und,lyrics-xxx $i 
+
+    ffprobe -v quiet -show_entries format_tags=lyrics-und,lyrics-xxx "${i}" | awk '/^TAG/ { start=1 } /^\[\/FORMAT\]/ { start = 0 } { if (start) print }' | sed 's/^TAG:lyrics-[a-Z]{,3}=//' | opencc -- > "./${filename}.lrc"
+    #exiftool -lyrics* "${i}" | sed 's/^Lyrics.* : \[/\[/' | sed 's/\.\[/\n\[/g' | opencc -- > $filename.lrc
+  else
+    ffprobe -v quiet -show_entries format_tags=lyrics-und,lyrics-xxx "${i}" | awk '/^TAG/ { start=1 } /^\[\/FORMAT\]/ { start = 0 } { if (start) print }' | sed 's/^TAG:lyrics-[a-Z]*=//' > "./${filename}.lrc"
+    #exiftool -lyrics* "${i}" | sed 's/^Lyrics.* : \[/\[/' | sed 's/\.\[/\n\[/g' > $filename.lrc
+  fi
+
+done
+

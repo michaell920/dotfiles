@@ -1,0 +1,83 @@
+#!/bin/sh
+
+sudo pacman -S \
+7zip  \
+android-tools \
+bluez \
+bluez-utils \
+btop \
+catimg \
+cava \
+chafa \
+dex \
+dunst \
+fastfetch \
+fcitx5 \
+fcitx5-chinese-addons \
+fcitx5-configtool \
+fcitx5-gtk \
+fcitx5-table-extra \
+foot \
+fzf \
+gimp \
+grim \
+hyprpicker \
+i3status-rust \
+iwd \
+kanshi \
+kdenlive \
+kvantum \
+lf \
+libpulse \
+libreoffice-still \
+linux \
+linux-firmware \
+man-db \
+mpd \
+mpv \
+neovim \
+networkmanager \
+newsboat \
+noto-fonts-cjk \
+noto-fonts-emoji \
+nwg-look \
+perl-rename \
+polkit-gnome \
+pyenv \
+qt5ct \
+qt6ct \
+rbutil \
+river \
+rmpc \
+slurp \
+steam \
+sudo \
+swayidle \
+swayimg \
+swww \
+syncthing \
+system-config-printer \
+tailscale \
+timeshift \
+tmux \
+trash-cli \
+ttf-fira-code \
+ttf-fira-mono \
+ttf-firacode-nerd \
+udiskie \
+waylock \
+wf-recorder \
+wireplumber \
+wl-clipboard \
+wlr-randr \
+xdg-desktop-portal-gtk \
+yt-dlp \
+zathura \
+zathura-pdf-mupdf \
+zip 
+
+yay -S \
+i3bar-river \
+librewolf-bin \
+lswt-git \
+sway-audio-idle-inhibit-git
