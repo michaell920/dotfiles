@@ -1,0 +1,6 @@
+#!/bin/sh
+
+mv .config $HOME/.config
+mv .local $HOME/.local
+mv .shell $HOME/.shell
+mv .newsboat $HOME/.newsboat
