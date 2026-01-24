@@ -1,0 +1,9 @@
+#!/bin/sh
+
+for file in *.mp4
+do
+  filename=${file::-4}
+  ffmpeg -y -i "$file" "${filename}.mp3"
+done
+
+
