@@ -5,7 +5,7 @@ IFS='
 
 # Best used with yt-dlp cause it downloads music in order
 
-[[ ${#@} -lt 1 ]] && echo "you suck nigga" && exit
+[[ ${#@} -lt 1 ]] && echo "you suck bro" && exit
 
 count=0
 
@@ -16,7 +16,26 @@ read -r artist
 for i in $(ls -tr)
 do
   count=$(( count + 1 ))
-  ffmpeg -i $i -metadata track=$count -metadata artist=$artist -c:a copy "${count} ${i}"
+
+  filename=$(basename $i)
+  ext=${i: -3: 3}
+
+  #ffmpeg -i $i -metadata track=$count -metadata artist=$artist -c:a copy "${count} ${i}"
+
+  case "$ext" in
+    m4a)
+      ffmpeg -y -i $i -metadata track=$count -metadata artist=$artist -c:v copy -c:a copy "$count $filename"
+    ;;
+    mp3)
+      ffmpeg -y -i $i -metadata track=$count -metadata artist=$artist -map 0:a -c copy "$count $filename"
+    ;;
+    ogg)
+      ffmpeg -y -i $i -metadata:s track=$count -metadata:s artist=$artist -map 0:a -c copy "$count $filename"
+    ;;
+    *) echo default
+    ;;
+  esac
+
   rm $i
 done
 

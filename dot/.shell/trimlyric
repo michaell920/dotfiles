@@ -1,0 +1,10 @@
+#!/bin/sh
+IFS='
+'
+
+
+for file in *.lrc
+do
+  sed -i 's/\.\.Source: .*//g' $file
+done
+

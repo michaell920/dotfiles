@@ -13,11 +13,9 @@ for i in *.$ext; do
   if [[ $ischinese == "y" ]]; then
     #ffprobe -v quiet -show_entries format_tags=lyrics-und,lyrics-xxx $i 
 
-    ffprobe -v quiet -show_entries format_tags=lyrics-und,lyrics-xxx "${i}" | awk '/^TAG/ { start=1 } /^\[\/FORMAT\]/ { start = 0 } { if (start) print }' | sed 's/^TAG:lyrics.*=//' | opencc -- > "./${filename}.lrc"
-    #exiftool -lyrics* "${i}" | sed 's/^Lyrics.* : \[/\[/' | sed 's/\.\[/\n\[/g' | opencc -- > $filename.lrc
+    ffprobe -v quiet -show_entries format_tags=lyrics,lyrics-und,lyrics-xxx "${i}" | awk '/^TAG/ { start=1 } /^\[\/FORMAT\]/ { start = 0 } { if (start) print }' | sed 's/^TAG:lyrics.*=//' | opencc -- > "./${filename}.lrc"
   else
-    ffprobe -v quiet -show_entries format_tags=lyrics-und,lyrics-xxx "${i}" | awk '/^TAG/ { start=1 } /^\[\/FORMAT\]/ { start = 0 } { if (start) print }' | sed 's/^TAG:lyrics.*=//' > "./${filename}.lrc"
-    #exiftool -lyrics* "${i}" | sed 's/^Lyrics.* : \[/\[/' | sed 's/\.\[/\n\[/g' > $filename.lrc
+    ffprobe -v quiet -show_entries format_tags=lyrics,lyrics-und,lyrics-xxx "${i}" | awk '/^TAG/ { start=1 } /^\[\/FORMAT\]/ { start = 0 } { if (start) print }' | sed 's/^TAG:lyrics.*=//' > "./${filename}.lrc"
   fi
 
 done

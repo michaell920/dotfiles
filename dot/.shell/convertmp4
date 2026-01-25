@@ -1,5 +1,7 @@
 #!/bin/sh
 
+[[ ${#@} -lt 1 ]] && echo "you suck bro" && exit
+
 for file in *.mp4
 do
   filename=${file::-4}
