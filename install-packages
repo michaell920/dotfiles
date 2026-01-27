@@ -1,14 +1,17 @@
 #!/bin/sh
 
 sudo pacman -S \
-7zip  \
+7zip \
+amd-ucode \
 android-tools \
+base \
+base-devel \
 btop \
-catimg \
 cava \
 chafa \
 dex \
 dunst \
+efibootmgr \
 fastfetch \
 fcitx5 \
 fcitx5-chinese-addons \
@@ -16,13 +19,13 @@ fcitx5-configtool \
 fcitx5-gtk \
 fcitx5-table-extra \
 foot \
+fuzzel \
 fzf \
-gimp \
+git \
 grim \
 hyprpicker \
-i3status-rust \
-iwd \
 kanshi \
+kdenlive \
 kvantum \
 lf \
 libreoffice-still \
@@ -30,42 +33,39 @@ man-db \
 mpd \
 mpv \
 neovim \
-networkmanager \
 noto-fonts-cjk \
 noto-fonts-emoji \
 nwg-look \
 perl-rename \
 polkit-gnome \
-pyenv \
+power-profiles-daemon \
 qt5ct \
 qt6ct \
-river \
 rmpc \
 slurp \
 swayidle \
 swayimg \
 swww \
-system-config-printer \
 tailscale \
-timeshift \
-tmux \
 trash-cli \
 ttf-fira-code \
 ttf-fira-mono \
 ttf-firacode-nerd \
 udiskie \
+waybar \
 waylock \
 wf-recorder \
 wl-clipboard \
 wlr-randr \
 xdg-desktop-portal-gtk \
+xorg-xwayland \
 yt-dlp \
 zathura \
 zathura-pdf-mupdf \
-zip 
+zip \
 
 yay -S \
-i3bar-river \
 librewolf-bin \
-lswt-git \
-sway-audio-idle-inhibit-git
+mangowc-git \
+surfshark-client \
+sway-audio-idle-inhibit-git \
