@@ -22,7 +22,7 @@ getnosynclyric ()
 
 
 while [[ 1 ]]; do
-  selectfile=$(getnosynclyric | fzf)
+  selectfile=$(getnosynclyric | fuzzel -w 70)
 
   [[ -z $selectfile ]] && exit
 

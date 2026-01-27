@@ -5,7 +5,8 @@
 # Get user selection via fzf from emoji file.
 # Kinda painful with the wl-copy thing 
 
-chosen=$(cat $HOME/.shell/Library/emoji | fzf | sed "s/ .*//")
+#chosen=$(cat $HOME/.shell/Library/emoji | fzf | sed "s/ .*//")
+chosen=$(cat $HOME/.shell/Library/emoji | fuzzel --dmenu | sed "s/ .*//")
 
 # Exit if none chosen.
 [ -z "$chosen" ] && exit

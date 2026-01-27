@@ -18,9 +18,6 @@ show_img(){
                        -t 1 \
                        --bg '#111111' \
                        "$1"
-    else
-        # catimg is faster than chafa for ANSI
-        catimg -t -w "$2" "$1"
     fi
 }
 

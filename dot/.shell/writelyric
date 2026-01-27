@@ -3,7 +3,7 @@
 IFS='
 '
 
-sel=$(find -name "*.*" | fzf --prompt "Select audio file: ")
+sel=$(find -name "*.*" | fuzzel --dmenu --prompt "Select audio file: ")
 
 
 getTag ()

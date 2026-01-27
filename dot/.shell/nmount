@@ -1,11 +1,12 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # Slightly modified nmount for fzf
 # Original Author: Arun Prakash Jana
 
 prompt="device name [e.g. sdXn]"
 
-dev=$(lsblk -l | fzf --prompt "${prompt}" | cut -d' ' -f1)
+#dev=$(lsblk -l | fzf --prompt 'Pick a device to mount: ' | cut -d' ' -f1)
+dev=$(lsblk -l | fuzzel --dmenu -w 70 --prompt 'Pick a device to mount: ' | cut -d' ' -f1)
 
 #printf "\nEnsure you aren't still in the mounted device.\n"
 #printf "%s" "$prompt"

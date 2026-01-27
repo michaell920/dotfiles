@@ -32,9 +32,10 @@ map gu cd /run/media
 map Y %wl-copy $fx && echo "File path ${fx} copied!"
 
 map ; $$SHELL nmount
-map t %tmux new-window 'lf'
-map | %tmux split-window -h 'lf'
-map - %tmux split-window -v 'lf'
+map W $foot -e lf &>/dev/null &
+#map t %tmux new-window 'lf'
+#map | %tmux split-window -h 'lf'
+#map - %tmux split-window -v 'lf'
 
 # set '-eu' options for shell commands
 # These options are used to have safer shell commands. Option '-e' is used to
