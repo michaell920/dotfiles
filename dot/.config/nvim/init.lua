@@ -11,8 +11,7 @@ vim.wo.relativenumber = true
 
 vim.api.nvim_set_option("clipboard", "unnamedplus")
 vim.cmd[[colorscheme tokyonight-night]]
+vim.cmd[[ TransparentEnable ]]
 vim.opt.guicursor = ""
 
---vim.api.nvim_set_keymap('n', 't', '<S-i><Esc>pj', {noremap = true})
-
-
+vim.api.nvim_set_keymap('n', 't', '<S-i><Esc>pj', {noremap = true})

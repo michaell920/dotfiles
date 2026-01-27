@@ -1,0 +1,90 @@
+{
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 36,
+    "spacing": 4, 
+
+    "modules-left": [
+        "ext/workspaces"
+    ],
+    "modules-center": [
+        "dwl/window"
+    ],
+    "modules-right": [
+        "wireplumber",
+        "network",
+        "power-profiles-daemon",
+        "backlight",
+        "battery",
+        "clock",
+        "tray"
+    ],
+    "dwl/window": {
+      "tooltip": false
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "format": " {:%H:%M}",
+        "format-alt": " {:%A, %B %d, %Y}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><span size='9pt' font='Fira Code'>{calendar}</span></tt>",
+        
+        "calendar": {
+          "mode"          : "month",
+          "mode-mon-col"  : 3,
+          "on-scroll"     : 1,
+          "format": {
+            "days":       "<span color='#787c99'><b>{}</b></span>",
+            "weekdays":   "<span color='#ffffff'><b>{}</b></span>",
+            "today":      "<span color='#668ac4'><b><u>{}</u></b></span>"
+          }
+        }
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-charging": "󱐋 {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+    "network": {
+        "format-wifi": " {essid} ({signalStrength}%)",
+        "format-ethernet": "{ipaddr}/{cidr}",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "⚠ Disconnected",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "wireplumber": {
+      "format": "{icon}  {volume}%",
+      "format-icons": [
+        "", ""
+      ],
+      "format-muted": "  muted",
+
+      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    }
+}
