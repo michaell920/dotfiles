@@ -15,3 +15,4 @@ vim.cmd[[ TransparentEnable ]]
 vim.opt.guicursor = ""
 
 vim.api.nvim_set_keymap('n', 't', '<S-i><Esc>pj', {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-e>', ':FzfLua files resume=true<CR>', {noremap = true})

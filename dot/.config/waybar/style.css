@@ -10,15 +10,17 @@ window#waybar {
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
+
+    border-bottom: 5px solid #c0caf5;
 }
 
 button {
   color: #ffffff;
-  /*background-color: rgba(58, 89, 161, 0.87);*/
   /* Use box-shadow instead of border so the text isn't offset */
   /* Avoid rounded borders under each button name */
   border: none;
   border-radius: 0;
+  margin-bottom: 5px;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
@@ -33,8 +35,10 @@ button:hover {
 #network,
 #wireplumber,
 #tray,
-#power-profiles-daemon {
+#power-profiles-daemon,
+#group-power {
     padding: 0 10px;
+    margin-bottom: 5px;
     color: #ffffff;
     background-color: rgba(58, 89, 161, 0.87);
 }

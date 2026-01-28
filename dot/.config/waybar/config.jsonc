@@ -4,6 +4,7 @@
     "spacing": 4, 
 
     "modules-left": [
+        "clock",
         "ext/workspaces"
     ],
     "modules-center": [
@@ -15,10 +16,11 @@
         "power-profiles-daemon",
         "backlight",
         "battery",
-        "clock",
-        "tray"
+        "tray",
+        "group/group-power"
     ],
     "dwl/window": {
+      "icon": true,
       "tooltip": false
     },
     "tray": {
@@ -39,6 +41,13 @@
             "weekdays":   "<span color='#ffffff'><b>{}</b></span>",
             "today":      "<span color='#668ac4'><b><u>{}</u></b></span>"
           }
+        },
+        "actions":  {
+          "on-click-right": "mode",
+          "on-scroll-up": "tz_up",
+          "on-scroll-down": "tz_down",
+          "on-scroll-up": "shift_up",
+          "on-scroll-down": "shift_down"
         }
     },
     "backlight": {
@@ -86,5 +95,39 @@
       "format-muted": "  muted",
 
       "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+    "group/group-power": {
+      "orientation": "inherit",
+      "drawer": {
+          "transition-duration": 500,
+          "children-class": "not-power",
+          "transition-left-to-right": false
+      },
+      "modules": [
+          "custom/power", // First element is the "group leader" and won't ever be hidden
+          "custom/quit",
+          "custom/lock",
+          "custom/reboot"
+      ]
+    },
+    "custom/quit": {
+        "format": "󰗼 ",
+        "tooltip": false,
+        "on-click": "mmsg -d quit"
+    },
+    "custom/lock": {
+        "format": "󰍁 ",
+        "tooltip": false,
+        "on-click": "waylock"
+    },
+    "custom/reboot": {
+        "format": "󰜉 ",
+        "tooltip": false,
+        "on-click": "reboot"
+    },
+    "custom/power": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "shutdown now"
     }
 }
