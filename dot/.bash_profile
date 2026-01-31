@@ -9,6 +9,6 @@ export EDITOR=nvim
 export OPENER=$HOME/.shell/rifle.py
 
 
-export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_QPA_PLATFORMTHEME=qt6ct
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
