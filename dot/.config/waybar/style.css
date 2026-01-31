@@ -10,8 +10,11 @@ window#waybar {
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
-
+    
+    border-radius: 5px;
     border-bottom: 5px solid #c0caf5;
+    border-left: 5px solid #c0caf5;
+    border-right: 5px solid #c0caf5;
 }
 
 button {
@@ -43,14 +46,12 @@ button:hover {
     background-color: rgba(58, 89, 161, 0.87);
 }
 
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
+.modules-left > widget:first-child > * {
+    margin-left: 5px;
 }
 
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+.modules-right > widget:last-child > * {
+    margin-right: 5px;
 }
 
 #clock {
